@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  load-test-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: load-test-server
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./k6-scripts:/app/k6-scripts
+    restart: unless-stopped
+    networks:
+      - load-test-network
+
+networks:
+  load-test-network:
+    driver: bridge
+
