@@ -13,6 +13,7 @@ k6를 사용한 API 부하테스트 서버
 
 ## 요구사항
 
+docker없이 node로도 사용가능
 - Docker
 - Docker Compose
 
@@ -22,16 +23,16 @@ k6를 사용한 API 부하테스트 서버
 
 ```bash
 # 서버 빌드 및 실행
-docker-compose up --build
+docker compose up --build
 
 # 백그라운드 실행
-docker-compose up -d --build
+docker compose up -d --build
 
 # 서버 중지
-docker-compose down
+docker compose down
 ```
 
-서버가 실행되면 브라우저에서 `http://localhost:3000`에 접속하세요.
+서버가 실행되면 브라우저에서 `http://localhost:3000`에 접속.
 
 ## 사용 방법
 
@@ -51,7 +52,7 @@ docker-compose down
 
 ## 테스트 결과
 
-테스트가 완료되면 다음 정보를 확인할 수 있습니다:
+테스트가 완료되면 다음 정보를 확인가능:
 
 - 요청 통계 (요청 수, 성공/실패율)
 - 응답 시간 (평균, 최소, 최대, 95th percentile)
@@ -67,9 +68,8 @@ docker-compose down
 
 ## 주의사항
 
-- 부하테스트는 대상 서버에 부하를 주므로, 테스트 전에 대상 서버의 허용 용량을 확인하세요.
-- k6 스크립트는 `/k6-scripts` 디렉토리에 생성됩니다.
-- 테스트 실행 중에는 브라우저를 닫지 마세요.
+- 부하테스트는 대상 서버에 부하를 주므로, 테스트 전에 대상 서버의 허용 용량을 확인필요.
+- k6 스크립트는 `/k6-scripts` 디렉토리에 생성.
 
 ## 개발 모드
 
@@ -77,10 +77,10 @@ docker-compose down
 
 ```bash
 # 의존성 설치
-npm install
+pnpm i
 
 # 개발 서버 실행
-npm run dev
+pnpm dev
 ```
 
-단, 로컬 개발 시 k6가 설치되어 있어야 합니다. k6 설치 방법은 [k6 공식 문서](https://k6.io/docs/getting-started/installation/)를 참고
+단, 로컬 개발 시 k6 설치필요. k6 설치 방법은 [k6 공식 문서](https://k6.io/docs/getting-started/installation/)를 참고
